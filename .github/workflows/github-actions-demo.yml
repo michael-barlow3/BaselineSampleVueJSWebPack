@@ -12,5 +12,7 @@ jobs:
         with: 
           column_name: "To do"
           project: "https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1"
+          repo-token: ${{ secrets.FDB_PMO_ACTIONS }}
+
 
 
