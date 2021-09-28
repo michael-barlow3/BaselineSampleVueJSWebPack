@@ -1,4 +1,6 @@
 name: "Auto Assign to Project"
+env:
+  GITHUB_TOKEN: ${{ secrets.FDB_PMO_ACTIONS }}
 on:
   issues:
     types: [opened, labeled]
@@ -12,7 +14,4 @@ jobs:
         with: 
           column_name: "To do"
           project: "https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1"
-          repo-token: ${{ secrets.FDB_PMO_ACTIONS }}
-
-
 
