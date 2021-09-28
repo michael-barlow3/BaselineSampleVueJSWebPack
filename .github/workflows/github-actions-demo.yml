@@ -1,0 +1,14 @@
+name: Auto Assign to Project
+uses: srggrs/assign-one-project-github-action@1.3.0
+on:
+  issues:
+    types: [opened, labeled]
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign to One Project
+    steps:
+      if: github.event.action == 'opened'
+      with:
+        project: 'https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1'
+        column_name: 'To do'
