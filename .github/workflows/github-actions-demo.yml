@@ -9,8 +9,23 @@ jobs:
     name: "Assign to One Project"
     runs-on: ubuntu-latest
     steps:
-      - if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'bug')
+      - name: New Issue
+        if: github.event_name == 'issues' && github.event.action == 'opened'
         uses: srggrs/assign-one-project-github-action@1.3.0
         with:
-          column_name: "To do"
+          column_name: "To Do"
+          project: "https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1"
+          
+      - name: Edited Issue becomes a bug
+        if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'bug')
+        uses: srggrs/assign-one-project-github-action@1.3.0
+        with:
+          column_name: "ggg"
+          project: "https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1"
+
+      - name: Edited Issue comes under review
+        if: github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'Under Review')
+        uses: srggrs/assign-one-project-github-action@1.3.0
+        with:
+          column_name: "Under Review"
           project: "https://github.com/michael-barlow3/BaselineSampleVueJSWebPack/projects/1"
