@@ -1,7 +1,7 @@
 name: "Auto Assign to Project"
 on:
   issues:
-    types: [opened, edited, labeled]
+    types: [opened, labeled]
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
