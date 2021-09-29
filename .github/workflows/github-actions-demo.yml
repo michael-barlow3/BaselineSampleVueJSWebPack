@@ -9,7 +9,7 @@ jobs:
     name: "Assign to One Project"
     runs-on: ubuntu-latest
     steps:
-      - if: ("github.event.action == 'opened'" and contains(github.event.issue.labels.*.name, 'bug'))
+      - if: (github.event_name == 'issues' and github.event.action == 'opened' and contains(github.event.issue.labels.*.name, 'bug'))
         uses: srggrs/assign-one-project-github-action@1.3.0
         with:
           column_name: "To do"
