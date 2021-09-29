@@ -1,7 +1,7 @@
 name: "Auto Assign to Project"
 on:
   issues:
-    types: [opened, labeled]
+    types: [created, edited, labeled]
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: New Issue
-        if: github.event_name == 'issues' && github.event.action == 'opened'
+        if: github.event_name == 'issues' && github.event.action == 'created'
         uses: srggrs/assign-one-project-github-action@1.3.0
         with:
           column_name: "To Do"
