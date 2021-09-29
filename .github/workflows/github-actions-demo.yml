@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: New Issue
-        if: github.event_name == 'issues' && github.event.action == 'created'
+        if: github.event_name == 'issues' && github.event.action == 'opened'
         uses: srggrs/assign-one-project-github-action@1.3.0
         with:
           echo '::warning:: To Do Runner'
